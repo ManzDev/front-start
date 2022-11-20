@@ -1,0 +1,141 @@
+:root {
+  --bounce-effect: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+html,
+body,
+.container {
+  height: 100vh;
+  margin: 0;
+}
+
+body {
+  background: #15141e;
+  background-image: url("images/background.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.container {
+  /*
+  display: grid;
+  justify-content: start;
+  align-items: center;
+  */
+  margin: 4em 6em;
+}
+
+.page {
+  width: 600px;
+  height: 800px;
+  display: grid;
+  grid-template-columns: 75px 1fr;
+  grid-template-rows: 0.2fr 1fr 1fr;
+  box-shadow: 6px 6px 15px #000c;
+  font-family: Montserrat, sans-serif;
+}
+
+.page > header {
+  background: #0f0f10;
+  grid-column: 1 / 3;
+  color: #fff;
+  font-family: Montserrat, sans-serif;
+  font-size: 2.5rem;
+  display: grid;
+  place-items: center;
+}
+
+.page > header span {
+  display: block;
+  font-size: 1.25rem;
+  color: #666;
+  transform: translateY(-6px);
+}
+
+.page .index {
+  background: #191a1f;
+  grid-row: 2 / 5;
+}
+
+.index hr {
+  border: 2px solid #121213;
+  margin: 10px 0;
+}
+
+.index .number {
+  background: #131418;
+  color: #fff;
+  font-size: 2rem;
+  margin: 10px;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1 / 1;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.index .number.done {
+  background: #234f23;
+}
+
+.page .content {
+  --footer-height: 75px;
+
+  background: #1b1c22;
+  grid-row: 2 / 4;
+  display: grid;
+  grid-template-rows: 1fr 0fr 1fr var(--footer-height);
+  transition: grid-template-rows var(--bounce-effect) 0.75s;
+}
+
+.content:has(.question.click) {
+  grid-template-rows: 1fr 1fr 1fr var(--footer-height);
+}
+
+.content .question {
+  font-family: EnterCommand, monospace;
+  font-size: 2rem;
+  line-height: 80%;
+  background: #2b2c33;
+  color: #b9b9b9;
+  margin: 20px;
+  padding: 20px;
+}
+
+.content .info {
+  background: crimson;
+  overflow: hidden;
+}
+
+.content .answers {
+  display: grid;
+  gap: 10px;
+  padding: 20px;
+}
+
+.answers .answer {
+  background: #25262c;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.content nav {
+  background: #0f0f10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2em;
+}
+
+nav button {
+  background: var(--bgcolor);
+  border: 0;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 5px 15px;
+}
+
+nav button:first-child { --bgcolor: #4c0606; }
+nav button:last-child { --bgcolor: #0f5e0f; }
